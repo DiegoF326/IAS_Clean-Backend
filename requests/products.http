@@ -1,0 +1,257 @@
+@apipro = http://localhost:7000/productos
+
+GET {{apipro}}
+
+###
+
+POST {{apipro}}
+Content-Type: application/json
+
+{
+    "cod_prod": 65625,
+    "nombre_prod": "Escoba",
+    "tipo_prod": "Aseo",
+    "presentacion_prod": "unidad",
+    "valor_prod": 5000,
+    "descripcion_prod": "Escoba de cerdas gruesas",
+    "cantidad_prod": 65
+
+    
+}
+
+###
+GET {{apipro}}/65625
+
+
+###
+
+DELETE {{apipro}}/65625
+
+###
+PUT {{apipro}}/65642
+Content-Type: application/json
+
+{
+    "nombre_prod": "Recogedor",
+    "tipo_prod": "Aseo",
+    "presentacion_prod": "unidad",
+    "valor_prod": 5000,
+    "descripcion_prod": "Trapeador para tablado",
+    "cantidad_prod": 65
+}
+###
+
+
+
+
+
+@apicli = http://localhost:7000/clientes
+
+GET {{apicli}}
+
+###
+
+POST {{apicli}}
+Content-Type: application/json
+
+{
+    "cod_clnt": 5645646,
+    "nombre_clnt": "Carlos",
+    "direccion_clnt": "Ramirez",
+    "telefono_clnt": "3456865784",
+    "mail_clnt": "cramirez@gmail.com",
+    "tipo_clnt": "Abitual",
+    "historicos_ventas_clnt": 89,
+    "id_nit_clnt": "4851256987"
+}
+
+###
+GET {{apicli}}/4654564
+
+###
+
+DELETE {{apicli}}/5645646
+
+###
+PUT {{apicli}}/5645646
+Content-Type: application/json
+
+{
+    "nombre_clnt": "Daniel",
+  "direccion_clnt": "Ramirez",
+  "telefono_clnt": "3456865789",
+  "mail_clnt": "dramirez@gmail.com",
+  "tipo_clnt": "Frecuente",
+  "historicos_ventas_clnt": 50,
+  "id_nit_clnt": "4851256989"
+}
+###
+
+
+
+
+@apipv = http://localhost:7000/proveedores
+
+GET {{apipv}}
+
+###
+
+POST {{apipv}}
+Content-Type: application/json
+
+{
+    "cod_prov": 5642548,
+    "nombre_prov": "cleanEnvios",
+    "nit_prov": 548887542,
+    "direccion_prov": "Calle 45 # 45 - 98",
+    "mail_prov": "envios-clean@gmail.com",
+    "telefono_prov": 45421498,
+    "historico_Compras_prov": 20
+}
+
+###
+GET {{apipv}}/6589548
+
+###
+
+DELETE {{apipv}}/5642548
+
+###
+PUT {{apipv}}/5642548
+Content-Type: application/json
+
+{
+  "nombre_prov": "clearEnvios",
+  "nit_prov": 548887540,
+  "direccion_prov": "Calle 45 # 45 - 90",
+  "mail_prov": "envios-clear@gmail.com",
+  "telefono_prov": 45421490,
+  "historico_Compras_prov": 40
+}
+###
+
+
+
+
+
+@apiemp = http://localhost:7000/empresa
+
+GET {{apiemp}}
+
+###
+PUT {{apiemp}}/15645621
+Content-Type: application/json
+
+{
+    "razon_social_empr": "IAS Clean",
+    "actividad_economica_empr": "Productos de limpieza",
+    "direccion_empr": "Calle 54 # 45 - 91",
+    "telefono_empr": "601 859 65 71",
+    "mail_empr": "ias-clean@gmai.com",
+    "numero_empl": 1011,
+    "capital_empr": 1542311,
+    "activo_empr": 6456451,
+    "pasivo_empr": 654561
+}
+###
+
+
+
+@apimp = http://localhost:7000/materiaPrima
+
+GET {{apimp}}
+
+###
+
+POST {{apimp}}
+Content-Type: application/json
+
+{
+    "cod_matPrima": 645556,
+    "empresa_ias_nit_empr": 15645621,
+    "nombre_matPrima": "Jabon",
+    "descripcion_matPrima": "Jabon puro",
+    "tipo_matPrima": "Neutra",
+    "unidad_medida_matPrima": "Litros",
+    "presentacion_matPrima": "Botella",
+    "precio_uni_medida_matPrima": 500,
+    "precio_presentacion_matPrima": 50000,
+    "cantidad_matPrima": 100
+}
+
+###
+GET {{apimp}}/545415
+
+###
+
+DELETE {{apimp}}/645556
+
+###
+PUT {{apimp}}/645556
+Content-Type: application/json
+
+{
+  "empresa_ias_nit_empr": 15645621,
+  "nombre_matPrima": "Disolvente",
+  "descripcion_matPrima": "Disolvente puro",
+  "tipo_matPrima": "Peligrosa",
+  "unidad_medida_matPrima": "Litros",
+  "presentacion_matPrima": "Botella",
+  "precio_uni_medida_matPrima": 5000,
+  "precio_presentacion_matPrima": 500000,
+  "cantidad_matPrima": 100
+}
+###
+
+
+
+
+@apiempl = http://localhost:7000/empleados
+
+GET {{apiempl}}
+
+###
+
+POST {{apiempl}}
+Content-Type: application/json
+
+{
+    "cod_empl": 12135957,
+    "empresa_ias_nit_empr": 15645621,
+    "nombre_empl": "Pedro",
+    "apellido_empl": "Perez",
+    "area_empl": "RRHH",
+    "cargo_empl": "Psicologo",
+    "salario_empl": 2500000,
+    "telefono_empl": "3129856597",
+    "mail_empl": "pperez@gmail.com",
+    "fecha_ini_empl": "2022-09-04T00:00:00.000Z",
+    "fecha_fin_empl": "2022-10-01T00:00:00.000Z",
+    "id_empl": "1000648857"
+}
+
+###
+GET {{apiempl}}/12135957
+
+###
+
+DELETE {{apiempl}}/12135957
+
+###
+PUT {{apiempl}}/12135957
+Content-Type: application/json
+
+{
+  "empresa_ias_nit_empr": 15645621,
+  "nombre_empl": "Paula",
+  "apellido_empl": "Rodriguez",
+  "area_empl": "RRHH",
+  "cargo_empl": "Psicologo",
+  "salario_empl": 2500000,
+  "telefono_empl": "3129856120",
+  "mail_empl": "prodriguez@gmail.com",
+  "fecha_ini_empl": "2022-09-23T00:00:00.000Z",
+  "fecha_fin_empl": "2022-10-24T00:00:00.000Z",
+  "id_empl": "1000648360"
+}
+###
