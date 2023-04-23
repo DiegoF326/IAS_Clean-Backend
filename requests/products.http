@@ -1,4 +1,4 @@
-@apipro = http://localhost:7000/productos
+@apipro = http://localhost:5000/productos
 
 GET {{apipro}}
 
@@ -45,7 +45,7 @@ Content-Type: application/json
 
 
 
-@apicli = http://localhost:7000/clientes
+@apicli = http://localhost:5000/clientes
 
 GET {{apicli}}
 
@@ -90,7 +90,7 @@ Content-Type: application/json
 
 
 
-@apipv = http://localhost:7000/proveedores
+@apipv = http://localhost:5000/proveedores
 
 GET {{apipv}}
 
@@ -134,7 +134,7 @@ Content-Type: application/json
 
 
 
-@apiemp = http://localhost:7000/empresa
+@apiemp = http://localhost:5000/empresa
 
 GET {{apiemp}}
 
@@ -157,7 +157,7 @@ Content-Type: application/json
 
 
 
-@apimp = http://localhost:7000/materiaPrima
+@apimp = http://localhost:5000/materiaPrima
 
 GET {{apimp}}
 
@@ -206,7 +206,7 @@ Content-Type: application/json
 
 
 
-@apiempl = http://localhost:7000/empleados
+@apiempl = http://localhost:5000/empleados
 
 GET {{apiempl}}
 
@@ -254,4 +254,29 @@ Content-Type: application/json
   "fecha_fin_empl": "2022-10-24T00:00:00.000Z",
   "id_empl": "1000648360"
 }
+
 ###
+
+@apire = http://localhost:5000/register
+
+###
+
+POST {{apire}}
+Content-Type: application/json
+
+{
+    "user": "user4",
+    "pwd": "userpw4"
+}
+
+
+###
+@apiauth = http://localhost:5000/auth
+
+GET {{apiauth}}
+Content-Type: application/json
+
+{
+    "user": "user1",
+    "pwd": "userpw1"
+}

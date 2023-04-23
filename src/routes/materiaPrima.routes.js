@@ -1,4 +1,5 @@
 import { Router } from "express";
+import verifyRol from "../middleware/verifyRol";
 import {
   actualizarMateriaPrima,
   crearMateriaPrima,
@@ -15,8 +16,8 @@ router.post("/materiaPrima", crearMateriaPrima);
 
 router.get("/materiaPrima/:cod_matPrima", mostrarMateriaPrimaId);
 
-router.delete("/materiaPrima/:cod_matPrima", eliminarMateriaPrima);
+router.delete("/materiaPrima/:cod_matPrima",verifyRol("Administrador") , eliminarMateriaPrima);
 
-router.put("/materiaPrima/:cod_matPrima", actualizarMateriaPrima);
+router.put("/materiaPrima/:cod_matPrima",verifyRol("Administrador") , actualizarMateriaPrima);
 
 export default router;

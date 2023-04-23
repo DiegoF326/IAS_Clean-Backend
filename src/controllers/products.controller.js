@@ -33,27 +33,34 @@ export const crearProducto = async (req, res) => {
   }
   try {
     const pool = await conectar();
-
-    await pool
+    const verifyProduct = await pool
       .request()
       .input("cod_prod", sql.Int, cod_prod)
-      .input("nombre_prod", sql.VarChar, nombre_prod)
-      .input("tipo_prod", sql.VarChar, tipo_prod)
-      .input("presentacion_prod", sql.VarChar, presentacion_prod)
-      .input("valor_prod", sql.Float, valor_prod)
-      .input("descripcion_prod", sql.VarChar, descripcion_prod)
-      .input("cantidad_prod", sql.Float, cantidad_prod)
-      .query(productsQuerys.crearProducto);
+      .query(productsQuerys.mostrarProductoId);
+    if (verifyProduct.rowsAffected[0] === 0) {
+      await pool
+        .request()
+        .input("cod_prod", sql.Int, cod_prod)
+        .input("nombre_prod", sql.VarChar, nombre_prod)
+        .input("tipo_prod", sql.VarChar, tipo_prod)
+        .input("presentacion_prod", sql.VarChar, presentacion_prod)
+        .input("valor_prod", sql.Float, valor_prod)
+        .input("descripcion_prod", sql.VarChar, descripcion_prod)
+        .input("cantidad_prod", sql.Float, cantidad_prod)
+        .query(productsQuerys.crearProducto);
 
-    res.json({
-      cod_prod,
-      nombre_prod,
-      tipo_prod,
-      presentacion_prod,
-      valor_prod,
-      descripcion_prod,
-      cantidad_prod,
-    });
+      res.json({
+        cod_prod,
+        nombre_prod,
+        tipo_prod,
+        presentacion_prod,
+        valor_prod,
+        descripcion_prod,
+        cantidad_prod,
+      });
+    } else{
+      return res.sendStatus(405)
+    }
   } catch (error) {
     res.status(500);
     res.send(error.message);

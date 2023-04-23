@@ -1,5 +1,5 @@
 import { Router } from "express";
-
+import verifyRol from "../middleware/verifyRol";
 import {
   actualizarCliente,
   crearCliente,
@@ -16,8 +16,8 @@ router.post("/clientes", crearCliente);
 
 router.get("/clientes/:cod_clnt", mostrarClienteId);
 
-router.delete("/clientes/:cod_clnt", eliminarCliente);
+router.delete("/clientes/:cod_clnt",verifyRol("Administrador") , eliminarCliente);
 
-router.put("/clientes/:cod_clnt", actualizarCliente);
+router.put("/clientes/:cod_clnt",verifyRol("Administrador") , actualizarCliente);
 
 export default router;

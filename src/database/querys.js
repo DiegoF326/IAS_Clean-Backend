@@ -42,3 +42,16 @@ export const empleadosQuerys = {
     eliminarEmpleado: "DELETE FROM empleados_IAS WHERE cod_empl = @cod_empl",
     actualizarEmpleado: 'UPDATE empleados_IAS SET empresa_ias_nit_empr = @empresa_ias_nit_empr, nombre_empl = @nombre_empl, apellido_empl = @apellido_empl, area_empl = @area_empl, cargo_empl = @cargo_empl, salario_empl = @salario_empl, telefono_empl = @telefono_empl, mail_empl = @mail_empl, fecha_ini_empl = @fecha_ini_empl, fecha_fin_empl = @fecha_fin_empl, id_empl = @id_empl WHERE cod_empl = @cod_empl'
 };
+
+export const usersQuerys = {
+    validarDuplicados: 'SELECT COUNT (*) FROM users_Table_IAS WHERE username_U = @user',
+    crearUsuario: 'INSERT INTO users_Table_IAS(username_U, password_U, rol_U) VALUES (@user, @hashPw, @rol)',
+    mostrarUsuarios: 'SELECT * FROM users_Table_IAS',
+    authUsuario: 'SELECT * FROM users_Table_IAS WHERE username_U = @user',
+    actualizarRefreshToken: 'UPDATE users_Table_IAS SET refreshToken_U = @refreshToken WHERE username_U = @user',
+    authRefreshToken: 'SELECT * FROM users_Table_IAS WHERE refreshToken_U = @refreshToken',
+    eliminarRefreshToken: "UPDATE users_Table_IAS SET refreshToken_U = Null WHERE refreshToken_U = @refreshToken"
+};
+//IF EXISTS (SELECT FROM users_Table_IAS WHERE username_U = @user) RETURN CAST(1 AS bit); ELSE RETURN CAST(0 AS bit);
+//SELECT COUNT(*) FROM users_Table_IAS WHERE username_U = @user
+//authUsuario: 'SELECT * FROM users_Table_IAS WHERE username_U = @user'

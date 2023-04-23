@@ -89,7 +89,7 @@ export const eliminarCliente = async (req, res) => {
 
 export const actualizarCliente = async (req, res) => {
   const {
-    nombre_clnt,
+      nombre_clnt,
       direccion_clnt,
       telefono_clnt,
       mail_clnt,
